@@ -11,6 +11,8 @@ Note: These instructions were written for a Mac. Yes a Mac. You perform these st
 To cross compile you need to use a special Docker image that I created. To do that you will need to __[install Docker](https://docs.docker.com/engine/installation/)__.  Once you have done that, do the following:
 
 	mkdir ~/raspberry
+
+	cd ~/raspberry
 	
 	git clone https://github.com/mitchallen/pi-hello-cross-compile.git --depth=1 hello
 	
@@ -55,6 +57,10 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 * * *
 
 ## Version History
+
+#### Version 0.1.2 release notes
+
+* Added cd command to sample usage
 
 #### Version 0.1.1 release notes
 
