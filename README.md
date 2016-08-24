@@ -58,6 +58,10 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 ## Version History
 
+#### Version 0.1.3 release notes
+
+* Updated hello message with newlines for easier reading in terminal window
+
 #### Version 0.1.2 release notes
 
 * Added cd command to sample usage

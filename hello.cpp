@@ -4,5 +4,5 @@ int main( int argc, char **argv )
 {
 	demo d;
 
-	return d.say("Hello from Demo");
+	return d.say("\n*\nHello from Raspberry Pi Cross Compile Demo!\n*\n");
 }
