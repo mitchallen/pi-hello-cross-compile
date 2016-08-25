@@ -1,22 +1,22 @@
-CC=/pitools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-gcc
-LDFLAGS=
-BUILD_FOLDER=/build
-CFLAGS=-c -Wall -I$(BUILD_FOLDER)
-SOURCES=$(wildcard *.cpp)
-OBJDIR=$(BUILD_FOLDER)/bin
-_OBJECTS=$(SOURCES:.cpp=.o)
-OBJECTS := $(addprefix $(OBJDIR)/,$(_OBJECTS))
+CC = /pitools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-gcc
+LDFLAGS =
+BLDDIR = /build
+INCDIR = $(BLDDIR)/inc
+SRCDIR = $(BLDDIR)/src
+OBJDIR = $(BLDDIR)/bin
+CFLAGS = -c -Wall -I$(INCDIR)
+SRC = $(wildcard $(SRCDIR)/*.cpp)
+OBJ = $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SRC))
+EXE = $(OBJDIR)/hello
 
-EXECUTABLE=$(OBJDIR)/hello
-
-all: clean $(SOURCES) $(EXECUTABLE)
+all: clean $(EXE) 
     
-$(EXECUTABLE): $(OBJECTS) 
+$(EXE): $(OBJ) 
 	$(CC) $(LDFLAGS) $(OBJDIR)/*.o -o $@ 
 
-# .cpp.o:
-$(OBJDIR)/%.o : %.cpp
+$(OBJDIR)/%.o : $(SRCDIR)/%.cpp
+	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	-rm -f $(OBJDIR)/*.o $(EXECUTABLE)
+	-rm -f $(OBJDIR)/*.o $(EXE)

@@ -58,6 +58,10 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 ## Version History
 
+#### Version 0.1.4 release notes
+
+* Restructured Makefile and project structure
+
 #### Version 0.1.3 release notes
 
 * Updated hello message with newlines for easier reading in terminal window
